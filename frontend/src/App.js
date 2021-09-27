@@ -10,6 +10,7 @@ import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import ProductScreen from "./screens/ProductScreen";
+import './css/App.css'
 
 function App() {
   // Set up app name from ENV file
