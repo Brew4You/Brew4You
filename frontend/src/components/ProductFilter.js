@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import StarRating from "./StarRating";
 import { Link } from "react-router-dom";
 
-const ProductFilter = () => {
+const ProductFilter = (props) => {
+  const [searchVal, setSearchVal] = useState(null);
+
+const _handleSearch = (e) => {
+  props.filter(searchVal)
+}
+
   return (
     <>
       <div className='card mb-2'>
         <h5 className='card-title'>Search</h5>
         <div className='input-group'>
           <input
+            onChange={(e) => setSearchVal(e.target.value)}
             type='text'
             className='form-control'
             placeholder='Keyword'
@@ -19,6 +26,7 @@ const ProductFilter = () => {
             className='btn btn-sm btn-outline-primary'
             type='button'
             id='button-search'
+            onClick={(e) => _handleSearch(e)}
           >
             <i className='fas fa-search'></i>
           </button>
@@ -28,19 +36,19 @@ const ProductFilter = () => {
         <h5 className='card-title'>Category</h5>
         <div className='list-group search-category'>
           <Link
-            to='/'
+            to='/menu/all'
             className='list-group-item list-group-item-action active'
             aria-current='true'
           >
             All
           </Link>
-          <Link to='/' className='list-group-item list-group-item-action'>
+          <Link to='/menu/coffee' className='list-group-item list-group-item-action'>
             Coffee
           </Link>
-          <Link to='/' className='list-group-item list-group-item-action'>
+          <Link to='/menu/tea' className='list-group-item list-group-item-action'>
             Tea
           </Link>
-          <Link to='/' className='list-group-item list-group-item-action'>
+          <Link to='/menu/breakfast' className='list-group-item list-group-item-action'>
             Breakfast
           </Link>
         </div>
