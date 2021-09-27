@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Product from "../components/Product";
 import Pagination from "../components/Pagination";
 import ProductFilter from "../components/ProductFilter";
@@ -25,7 +24,7 @@ const ProductListScreen = () => {
             </div>
             <div className='col-md-10'>
               <div className='row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3'>
-                {filterBy?
+                {filterBy ?
                 products
                   .filter((product) => (product.type.includes(filterBy)))
                   .map((product) => {
@@ -34,14 +33,19 @@ const ProductListScreen = () => {
                     )
                   }
                   
-                  ) :  
+                  ) :
+                  s !== "all" ?  
                   products
                   .filter((product) => (product.type.includes(s)))
                   .map((product) => (
                     <Product product={product} key={product.productId} />
                   ))
-                  
+                  :  products
+                  .map((product) => (
+                    <Product product={product} key={product.productId} />
+                  ))
 }
+                  
             
               </div>
               <div className='row'>
