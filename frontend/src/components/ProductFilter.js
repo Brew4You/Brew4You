@@ -81,7 +81,7 @@ const _handleSearch = (e) => {
         </div>
       </div>
       <div className='d-grid gap-2 mb-2'>
-        <button className='btn btn-block btn-danger'>
+        <button className='btn btn-block btn-danger' onClick={() => props.filter(null)}>
           Clear filter &nbsp;<i className='fas fa-trash-alt'></i>
         </button>
       </div>
